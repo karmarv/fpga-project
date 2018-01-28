@@ -1,0 +1,325 @@
+/*
+ *timing.c: simple starter application for lab 1A and 1B
+ *
+ */
+
+#include <stdio.h>		// Used for printf()
+#include "xparameters.h"	// Contains hardware addresses and bit masks
+#include "xil_cache.h"		// Cache Drivers
+#include "xintc.h"		// Interrupt Drivers
+#include "xtmrctr.h"		// Timer Drivers
+#include "xtmrctr_l.h" 		// Low-level timer drivers
+#include "xil_printf.h" 	// Used for xil_printf()
+//#include "extra.h" 		// Provides a source of bus contention
+#include "xgpio.h" 		// LED driver, used for General purpose I/i
+#include "xspi.h"
+#include "xspi_l.h"
+#include "lcd.h"
+
+volatile int timerTrigger = 0;
+
+void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber)
+{
+	timerTrigger = 100;
+}
+
+
+void game_start();
+
+
+
+
+//From here
+#define TFTW            128     // screen width
+#define TFTH            160     // screen height
+#define TFTW2            64     // half screen width
+#define TFTH2            80     // half screen height
+// game constant
+#define SPEED             1
+#define GRAVITY         9.8
+#define JUMP_FORCE     2.15
+#define SKIP_TICKS     20.0     // 1000 / 50fps
+#define MAX_FRAMESKIP     5
+// bird size
+#define BIRDW             8     // bird width
+#define BIRDH             8     // bird height
+#define BIRDW2            4     // half width
+#define BIRDH2            4     // half height
+// pipe size
+#define PIPEW            12     // pipe width
+#define GAPHEIGHT        36     // pipe gap height
+// floor size
+#define FLOORH           20     // floor height (from bottom of the screen)
+// grass size
+#define GRASSH            4     // grass height (inside floor, starts at floor y)
+
+/* // background
+const unsigned int BCKGRDCOL = TFT.Color565(138,235,244);
+// bird
+const unsigned int BIRDCOL = TFT.Color565(255,254,174);
+// pipe
+const unsigned int PIPECOL  = TFT.Color565(99,255,78);
+// pipe highlight
+const unsigned int PIPEHIGHCOL  = TFT.Color565(250,255,250);
+// pipe seam
+const unsigned int PIPESEAMCOL  = TFT.Color565(0,0,0);
+// floor
+const unsigned int FLOORCOL = TFT.Color565(246,240,163);
+// grass (col2 is the stripe color)
+const unsigned int GRASSCOL  = TFT.Color565(141,225,87);
+const unsigned int GRASSCOL2 = TFT.Color565(156,239,88); */
+# define BCKGRDCOL setColor(138,235,244);
+# define BIRDCOL setColor(255,254,174)
+# define PIPECOL setColor(99,255,78)
+# define PIPEHIGHCOL setColor(250,255,250)
+# define PIPESEAMCOL setColor(0,0,0)
+# define FLOORCOL setColor(246,240,163)
+# define GRASSCOL setColor(141,225,87)
+# define GRASSCOL2 setColor(156,239,88)
+# define ST7735_WHITE setColor(255,255,255)
+
+
+// bird sprite
+// bird sprite colors (Cx name for values to keep the array readable)
+#define C0 BCKGRDCOL
+#define C1 setColor(195,165,75);
+#define C2 BIRDCOL
+#define C3 setColor(255,255,255);
+#define C4 setColor(255,0,0);
+#define C5 setColor(251,216,114);
+/*
+static const unsigned int birdcol[64] =
+{ C0, C0, C1, C1, C1, C1, C1, C0,
+  C0, C1, C2, C2, C2, C1, C3, C1,
+  C0, C2, C2, C2, C2, C1, C3, C1,
+  C1, C1, C1, C2, C2, C3, C1, C1,
+  C1, C2, C2, C2, C2, C2, C4, C4,
+  C1, C2, C2, C2, C1, C5, C4, C0,
+  C0, C1, C2, C1, C5, C5, C5, C0,
+  C0, C0, C1, C5, C5, C5, C0, C0};
+*/
+
+// bird structure
+static struct BIRD {
+  unsigned char x, y, old_y;
+  unsigned int col;
+  float vel_y;
+} bird;
+// pipe structure
+static struct PIPE {
+  char x, gap_y;
+  unsigned int col;
+} pipe;
+
+// score
+static short score;
+// temporary x and y var
+static short tmpx, tmpy;
+
+
+
+int main()
+{
+	static XIntc intc;
+	static XTmrCtr axiTimer;
+	static XGpio dc;
+	static XSpi spi;
+
+	XSpi_Config *spiConfig;	/* Pointer to Configuration data */
+
+	u32 status;
+	u32 controlReg;
+
+	int sec = 0;
+	int secTmp;
+	char secStr[4];
+
+	Xil_ICacheEnable();
+	Xil_DCacheEnable();
+	print("---Entering main (CK)---\n\r");
+
+	status = XTmrCtr_Initialize(&axiTimer, XPAR_AXI_TIMER_0_DEVICE_ID);
+	if (status != XST_SUCCESS) {
+		xil_printf("Initialize timer fail!\n");
+		return XST_FAILURE;
+	}
+
+	status = XIntc_Initialize(&intc, XPAR_INTC_0_DEVICE_ID);
+	if (status != XST_SUCCESS) {
+		xil_printf("Initialize interrupt controller fail!\n");
+		return XST_FAILURE;
+	}
+
+	status = XIntc_Connect(&intc,
+				XPAR_MICROBLAZE_0_AXI_INTC_AXI_TIMER_0_INTERRUPT_INTR,
+				(XInterruptHandler)XTmrCtr_InterruptHandler,
+				(void *)&axiTimer);
+	if (status != XST_SUCCESS) {
+		xil_printf("Connect IHR fail!\n");
+		return XST_FAILURE;
+	}
+
+	status = XIntc_Start(&intc, XIN_REAL_MODE);
+	if (status != XST_SUCCESS) {
+		xil_printf("Start interrupt controller fail!\n");
+		return XST_FAILURE;
+	}
+
+	// Enable interrupt
+	XIntc_Enable(&intc, XPAR_MICROBLAZE_0_AXI_INTC_AXI_TIMER_0_INTERRUPT_INTR);
+	microblaze_enable_interrupts();
+
+	/*
+	 * Setup the handler for the timer counter that will be called from the
+	 * interrupt context when the timer expires, specify a pointer to the
+	 * timer counter driver instance as the callback reference so the handler
+	 * is able to access the instance data
+	 */
+	XTmrCtr_SetHandler(&axiTimer, TimerCounterHandler, &axiTimer);
+
+	/*
+	 * Enable the interrupt of the timer counter so interrupts will occur
+	 * and use auto reload mode such that the timer counter will reload
+	 * itself automatically and continue repeatedly, without this option
+	 * it would expire once only
+	 */
+	XTmrCtr_SetOptions(&axiTimer, 0,
+				XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
+
+	/*
+	 * Set a reset value for the timer counter such that it will expire
+	 * eariler than letting it roll over from 0, the reset value is loaded
+	 * into the timer counter when it is started
+	 */
+	XTmrCtr_SetResetValue(&axiTimer, 0, 0xFFFF0000);
+
+	/*
+	 * Start the timer counter such that it's incrementing by default,
+	 * then wait for it to timeout a number of times
+	 */
+	XTmrCtr_Start(&axiTimer, 0);
+	xil_printf("Timer start!\n");
+
+	/*
+	 * Initialize the GPIO driver so that it's ready to use,
+	 * specify the device ID that is generated in xparameters.h
+	 */
+	status = XGpio_Initialize(&dc, XPAR_SPI_DC_DEVICE_ID);
+	if (status != XST_SUCCESS)  {
+		xil_printf("Initialize GPIO dc fail!\n");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Set the direction for all signals to be outputs
+	 */
+	XGpio_SetDataDirection(&dc, 1, 0x0);
+
+
+
+	/*
+	 * Initialize the SPI driver so that it is  ready to use.
+	 */
+	spiConfig = XSpi_LookupConfig(XPAR_SPI_DEVICE_ID);
+	if (spiConfig == NULL) {
+		xil_printf("Can't find spi device!\n");
+		return XST_DEVICE_NOT_FOUND;
+	}
+
+	status = XSpi_CfgInitialize(&spi, spiConfig, spiConfig->BaseAddress);
+	if (status != XST_SUCCESS) {
+		xil_printf("Initialize spi fail!\n");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Reset the SPI device to leave it in a known good state.
+	 */
+	XSpi_Reset(&spi);
+
+	/*
+	 * Setup the control register to enable master mode
+	 */
+	controlReg = XSpi_GetControlReg(&spi);
+	XSpi_SetControlReg(&spi,
+			(controlReg | XSP_CR_ENABLE_MASK | XSP_CR_MASTER_MODE_MASK) &
+			(~XSP_CR_TRANS_INHIBIT_MASK));
+
+	// Select 1st slave device
+	XSpi_SetSlaveSelectReg(&spi, ~0x01);
+
+	initLCD();
+
+	clrScr();
+
+	while(1){
+		game_start();
+	}
+/*	setColor(255, 0, 0);
+	fillRect(20, 20, 220, 300);
+
+	setColor(0, 50, 100);
+	fillRect(40, 180, 200, 250);
+
+	setColor(0, 255, 0);
+	setColorBg(255, 0, 0);
+	lcdPrint("Hello !!!!!", 40, 60);
+
+	setFont(BigFont);
+	lcdPrint("<# WORLD #>", 40, 80);
+
+	setFont(SevenSegNumFont);
+	setColor(238, 64, 0);
+	setColorBg(0, 50, 100);
+	while (1) {
+		if (timerTrigger > 0) {
+			secTmp = sec++ % 1000;
+			secStr[0] = secTmp / 100 + 48;
+			secTmp -= (secStr[0] - 48) * 100;
+			secStr[1] = secTmp / 10 + 48;
+			secTmp -= (secStr[1] - 48) * 10;
+			secStr[2] = secTmp + 48;
+			secStr[3] = '\0';
+
+			lcdPrint(secStr, 70, 190);
+
+			timerTrigger = 0;
+		}
+	}*/
+
+	xil_printf("End\n");
+	return 0;
+}
+
+
+
+void game_start() {
+  //TFT.fillScreen(ST7735_BLACK);
+  ST7735_WHITE;
+  fillRect(10, TFTH2 - 20, TFTW-20, 1 );
+  ST7735_WHITE;
+  fillRect(10, TFTH2 + 32, TFTW-20, 1 );
+  //TFT.setTextColor(ST7735_WHITE);
+  setFont(BigFont);
+  setColor(255,0,0);
+  // half width - num char * char width in pixels
+  //TFT.setCursor( TFTW2-(6*9), TFTH2 - 16);
+  lcdPrint("FLAPPY",TFTW2-(6*9), TFTH2 - 16);
+  //TFT.setTextSize(3);
+  //TFT.setCursor( TFTW2-(6*9), TFTH2 + 8);
+  lcdPrint("-BIRD-",TFTW2-(6*9), TFTH2 + 8);
+  //TFT.setTextSize(0);
+  //TFT.setCursor( 10, TFTH2 - 28);
+  //TFT.println("ATMEGA328");
+  //TFT.setCursor( TFTW2 - (12*3) - 1, TFTH2 + 34);
+  //TFT.println("press button");
+  lcdPrint("Press Button",TFTW2 - (12*3) - 1, TFTH2 + 34);
+  while (1) {
+    // wait for push button
+    //if ( !(PIND & (1<<PD2)) ) break;
+  }
+
+  // init game settings
+  //game_init();
+}
+

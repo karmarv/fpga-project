@@ -1,0 +1,20 @@
+/*
+ * vga_viz.h
+ *
+ *  Created on: Jan 11, 2018
+ *      Author: Karma
+ */
+
+#include "vga_axi_b.h"
+
+#ifndef SRC_VGA_VIZ_H_
+#define SRC_VGA_VIZ_H_
+
+
+
+#endif /* SRC_VGA_VIZ_H_ */
+
+
+/****/
+int displayTest();
+u32 readMonitorStatus();

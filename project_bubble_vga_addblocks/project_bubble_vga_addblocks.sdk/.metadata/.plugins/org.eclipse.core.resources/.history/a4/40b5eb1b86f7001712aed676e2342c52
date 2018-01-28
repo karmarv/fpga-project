@@ -1,0 +1,63 @@
+/*
+ * vga_viz.c
+ *
+ *  Created on: Jan 11, 2018
+ *      Author: Karma
+ */
+#include "vga_viz.h"
+
+
+/** Global Variables **/
+u32 vgaBaseAddress = 0x44A30000;
+
+
+/*
+ *
+ */
+u32 readMonitorStatus(){
+	return Xil_In32((0x44A30000) + (124)); //VGA_AXI_B_S00_VGA_AXI_SLV_REG31_OFFSET
+}
+
+/**
+ * Draw Ball at x, y
+ */
+int drawBall(int x, int y){
+	int status = 0, waitCount = 0;
+	while(readMonitorStatus() > 0 && waitCount<10){
+		status = readMonitorStatus();
+		xil_printf(" status first %d\n\r",status);
+		Xil_Out32((vgaBaseAddress) + (VGA_AXI_B_S00_VGA_AXI_SLV_REG0_OFFSET), (u32)(x));
+		Xil_Out32((vgaBaseAddress) + (VGA_AXI_B_S00_VGA_AXI_SLV_REG1_OFFSET), (u32)(y));
+		waitCount++;
+	}
+}
+
+/*
+ * Move from x1,y1 to x2,y2
+ */
+int moveBall(int x1, int y1, int x2, int y2){
+	int status = 0, waitCount = 0;
+	//Erase & then draw
+	drawBall((x1+x2)/2, (y1+y2)/2);
+	drawBall(x2, y2);
+}
+
+/*
+ * Test Code
+ */
+int displayTest(){
+
+	Xil_Out32((vgaBaseAddress) + (VGA_AXI_B_S00_VGA_AXI_SLV_REG0_OFFSET), (u32)(400));
+	Xil_Out32((vgaBaseAddress) + (VGA_AXI_B_S00_VGA_AXI_SLV_REG1_OFFSET), (u32)(400));
+
+	int x =200, y=200;
+	int status = readMonitorStatus();
+	xil_printf(" status first %d\n\r",status);
+	int waitCount = 0;
+	moveBall(200,200,350,350);
+	delay_ms(150);
+	moveBall(350,350,400,200);
+	delay_ms(150);
+	moveBall(400,200,400,400);
+	xil_printf("Closing %d\n\r",status);
+}
