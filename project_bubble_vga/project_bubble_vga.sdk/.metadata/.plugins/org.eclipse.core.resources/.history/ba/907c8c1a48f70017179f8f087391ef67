@@ -1,0 +1,35 @@
+/*
+ * vga_viz.c
+ *
+ *  Created on: Jan 11, 2018
+ *      Author: Karma
+ */
+
+
+u32 readMonitorStatus(){
+	return Xil_In32((0x44A30000) + (124)); //VGA_AXI_B_S00_VGA_AXI_SLV_REG31_OFFSET
+}
+
+
+int displayTest(){
+
+	Xil_Out32((vgaBaseAddress) + (VGA_AXI_B_S00_VGA_AXI_SLV_REG0_OFFSET), (u32)(400));
+	Xil_Out32((vgaBaseAddress) + (VGA_AXI_B_S00_VGA_AXI_SLV_REG1_OFFSET), (u32)(400));
+
+	int x =200, y=200;
+	int status = readMonitorStatus();
+	xil_printf(" status first %d\n\r",status);
+	int waitCount = 0;
+	while(readMonitorStatus() > 0 && waitCount<10){
+		status = readMonitorStatus();
+		xil_printf(" status first %d\n\r",status);
+		//VGA Display test code XPAR_VGA_AXI_0_BASEADDR
+		//VGA_AXI_B_Reg_SelfTest((uint32_t*)0x44A30000);
+		//VGA_AXI_B_mWriteReg(0x44A30000, VGA_AXI_B_S00_VGA_AXI_SLV_REG0_OFFSET, 0x200);
+		Xil_Out32((vgaBaseAddress) + (VGA_AXI_B_S00_VGA_AXI_SLV_REG0_OFFSET), (u32)(x));
+		//VGA_AXI_B_mWriteReg(0x44A30000, VGA_AXI_B_S00_VGA_AXI_SLV_REG1_OFFSET, 0x200);
+		Xil_Out32((vgaBaseAddress) + (VGA_AXI_B_S00_VGA_AXI_SLV_REG1_OFFSET), (u32)(y));
+		waitCount++;
+	}
+	xil_printf("Closing %d\n\r",status);
+}

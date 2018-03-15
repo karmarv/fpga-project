@@ -1,0 +1,421 @@
+/*
+ *timing.c: simple starter application for lab 1A and 1B
+ *
+ */
+
+#include <stdio.h>		// Used for printf()
+#include "xparameters.h"	// Contains hardware addresses and bit masks
+#include "xil_cache.h"		// Cache Drivers
+#include "xintc.h"		// Interrupt Drivers
+#include "xtmrctr.h"		// Timer Drivers
+#include "xtmrctr_l.h" 		// Low-level timer drivers
+#include "xil_printf.h" 	// Used for xil_printf()
+//#include "extra.h" 		// Provides a source of bus contention
+#include "xgpio.h" 		// LED driver, used for General purpose I/i
+#include "xspi.h"
+#include "xspi_l.h"
+#include "lcd.h"
+#include "ADXL362.h"
+
+volatile int timerTrigger = 0;
+
+void TimerCounterHandler(void *CallBackRef, u8 TmrCtrNumber)
+{
+	timerTrigger = 100;
+}
+
+volatile char rxData = 0;
+volatile char mode = 0;
+
+extern struct axisvalues;
+
+int block[24][32]= {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+					{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1},
+					{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1,1},
+					{1,0,0,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1,1,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,1,0,2,0,0,0,1,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1},
+					{1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,1,0,2,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,1,1,1,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,1,1,1,1,1,0,0,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,2,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,3,0,1,0,0,0,0,0,2,0,1},
+					{1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1},
+					{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+};
+
+int main()
+{
+	static XIntc intc;
+	static XTmrCtr axiTimer;
+	static XGpio dc;
+	static XSpi spi;
+
+	XSpi_Config *spiConfig;	/* Pointer to Configuration data */
+
+	u32 status;
+	u32 controlReg;
+
+	int sec = 0;
+	int secTmp;
+	char secStr[4];
+
+	Xil_ICacheEnable();
+	Xil_DCacheEnable();
+	print("---Entering main (CK)---\n\r");
+
+	status = XTmrCtr_Initialize(&axiTimer, XPAR_AXI_TIMER_0_DEVICE_ID);
+	if (status != XST_SUCCESS) {
+		xil_printf("Initialize timer fail!\n");
+		return XST_FAILURE;
+	}
+
+	status = XIntc_Initialize(&intc, XPAR_INTC_0_DEVICE_ID);
+	if (status != XST_SUCCESS) {
+		xil_printf("Initialize interrupt controller fail!\n");
+		return XST_FAILURE;
+	}
+
+	status = XIntc_Connect(&intc,
+				XPAR_MICROBLAZE_0_AXI_INTC_AXI_TIMER_0_INTERRUPT_INTR,
+				(XInterruptHandler)XTmrCtr_InterruptHandler,
+				(void *)&axiTimer);
+	if (status != XST_SUCCESS) {
+		xil_printf("Connect IHR fail!\n");
+		return XST_FAILURE;
+	}
+
+	status = XIntc_Start(&intc, XIN_REAL_MODE);
+	if (status != XST_SUCCESS) {
+		xil_printf("Start interrupt controller fail!\n");
+		return XST_FAILURE;
+	}
+
+	// Enable interrupt
+	XIntc_Enable(&intc, XPAR_MICROBLAZE_0_AXI_INTC_AXI_TIMER_0_INTERRUPT_INTR);
+	microblaze_enable_interrupts();
+
+	/*
+	 * Setup the handler for the timer counter that will be called from the
+	 * interrupt context when the timer expires, specify a pointer to the
+	 * timer counter driver instance as the callback reference so the handler
+	 * is able to access the instance data
+	 */
+	XTmrCtr_SetHandler(&axiTimer, TimerCounterHandler, &axiTimer);
+
+	/*
+	 * Enable the interrupt of the timer counter so interrupts will occur
+	 * and use auto reload mode such that the timer counter will reload
+	 * itself automatically and continue repeatedly, without this option
+	 * it would expire once only
+	 */
+	XTmrCtr_SetOptions(&axiTimer, 0,
+				XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
+
+	/*
+	 * Set a reset value for the timer counter such that it will expire
+	 * eariler than letting it roll over from 0, the reset value is loaded
+	 * into the timer counter when it is started
+	 */
+	XTmrCtr_SetResetValue(&axiTimer, 0, 0xFFFF0000);
+
+	/*
+	 * Start the timer counter such that it's incrementing by default,
+	 * then wait for it to timeout a number of times
+	 */
+	XTmrCtr_Start(&axiTimer, 0);
+	xil_printf("Timer start!\n");
+
+	/*
+	 * Initialize the GPIO driver so that it's ready to use,
+	 * specify the device ID that is generated in xparameters.h
+	 */
+	status = XGpio_Initialize(&dc, XPAR_SPI_DC_DEVICE_ID);
+	if (status != XST_SUCCESS)  {
+		xil_printf("Initialize GPIO dc fail!\n");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Set the direction for all signals to be outputs
+	 */
+	XGpio_SetDataDirection(&dc, 1, 0x0);
+
+
+
+	/*
+	 * Initialize the SPI driver so that it is  ready to use.
+	 */
+	spiConfig = XSpi_LookupConfig(XPAR_SPI_DEVICE_ID);
+	if (spiConfig == NULL) {
+		xil_printf("Can't find spi device!\n");
+		return XST_DEVICE_NOT_FOUND;
+	}
+
+	status = XSpi_CfgInitialize(&spi, spiConfig, spiConfig->BaseAddress);
+	if (status != XST_SUCCESS) {
+		xil_printf("Initialize spi fail!\n");
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Reset the SPI device to leave it in a known good state.
+	 */
+	XSpi_Reset(&spi);
+
+	/*
+	 * Setup the control register to enable master mode
+	 */
+	controlReg = XSpi_GetControlReg(&spi);
+	XSpi_SetControlReg(&spi,
+			(controlReg | XSP_CR_ENABLE_MASK | XSP_CR_MASTER_MODE_MASK) &
+			(~XSP_CR_TRANS_INHIBIT_MASK));
+
+	// Select 1st slave device
+	XSpi_SetSlaveSelectReg(&spi, ~0x01);
+	SPI_Init(SPI_BASEADDR, 0, 0, 0);
+
+
+	ADXL362_WriteReg(ADXL362_SOFT_RESET, ADXL362_RESET_CMD);
+	delay_ms(10);
+	ADXL362_WriteReg(ADXL362_SOFT_RESET, 0x00);
+	// Enable Measurement
+	ADXL362_WriteReg(ADXL362_POWER_CTL, (2 << ADXL362_MEASURE));
+	initLCD();
+
+	clrScr();
+
+	//setColor(0, 0, 0);
+	//fillRect(0, 0, 240, 320);
+
+	/*setColor(0, 50, 100);
+	fillRect(40, 180, 200, 250);*/
+
+//	setColor(0, 255, 0);
+
+
+
+//	setFont(BigFont);
+
+//background
+/*
+
+//for borders
+	setColor(255,255,255);
+	fillRect(0,0,10,320);
+	fillRect(0,0,240,10);
+	fillRect(230,0,240,320);
+	fillRect(0,310,240,320);
+
+//game background
+//	setColour(255,0,0);
+	fillRect(30,0,50,260);
+	fillRect(30,240,130,260);
+	fillRect(70,290,90,320);
+	fillRect(180,240,240,260);
+	fillRect(160,50,180,260);
+	fillRect(90,180,160,200);
+	fillRect(110,260,130,280);
+	fillRect(50,130,110,150);
+	fillRect(130,130,160,150);
+	fillRect(90,50,160,70);
+	fillRect(90,70,110,100);
+	fillRect(210,180,230,200);
+
+//game end block
+	setColor(0,255,0);
+	fillRect(210,220,220,230);
+
+//holes
+	setColor(0,0,255);
+	fillRect(30,290,40,300);
+	fillRect(210,290,220,300);
+	fillRect(140,160,150,170);
+	fillRect(140,80,150,90);
+	fillRect(210,20,220,30);
+
+*/
+	/*
+
+//game background
+	int i,j;
+	for(i=0;i<24;i++){
+			for(j=0;j<32;j++){
+				if (block[i][j]==1)
+				{
+				setColor(255,255,255);
+				fillRect(i*10,j*10,i*10+9,j*10+9);
+				}
+				else if (block[i][j]==2)
+				{
+				setColor(0,0,255);
+				fillRect(i*10,j*10,i*10+9,j*10+9);
+				}
+				else if (block[i][j]==3)
+				{
+				setColor(0,255,0);
+				fillRect(i*10,j*10,i*10+9,j*10+9);
+				}
+			}
+		}
+	int x=1,y=1,tx=1,ty=1;
+
+	setColor(255,0,0);
+	fillRect(10,10,19,19);
+
+	while(1)
+	{
+	struct axisvalues rx,ry;
+
+
+
+		int i,j,k;
+
+
+		rx=ADXL362_ReadXNew();
+		ry=ADXL362_ReadYNew();
+		if(rx.sign>0)
+			tx=x+1;
+			//lcdPrint("FRONT", 40, 60);
+		else
+			tx=x-1;
+			//lcdPrint("BACK", 40, 60);
+
+		if(ry.sign>0)
+			ty=y+1;
+			//lcdPrint("RIGHT", 40, 80);
+		else
+			ty=y-1;
+			//lcdPrint("LEFT", 40, 80);
+
+		xil_printf("x=%d,y=%d\n",tx,ty);
+
+		if(block[tx][ty]==1)
+		{
+			continue;
+
+		}
+		else if(block[tx][ty]==2)
+		{
+			xil_printf("GAME OVER");
+			setColor(0,0,0);
+			fillRect(0,0,240,320);
+			break;
+		}
+		else if(block[tx][ty]==3)
+		{
+			xil_printf("YOU HAVE WON");
+			clrScr();
+			break;
+		}
+		else if((block[tx][ty]==0))
+		{
+			setColor(0,0,0);
+			fillRect(x*10,y*10,x*10+9,y*10+9);
+			x=tx;
+			y=ty;
+			setColor(255,0,0);
+			fillRect(x*10,y*10,x*10+9,y*10+9);
+		}
+
+	   }
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+		int xaxis=120,yaxis=160,xaxis_new=120,yaxis_new=160;
+
+		int h;
+		struct axisvalues rx,ry;
+
+		for(h=0;h<200;h++){
+			setColor(0,0,0);
+			fillRect(xaxis-15,yaxis-15,xaxis+15,yaxis+15);
+			setColor(255,255,255);
+			fillRect(xaxis_new-15,yaxis_new-15,xaxis_new+15,yaxis_new+15);
+			xaxis=xaxis_new;
+			yaxis=yaxis_new;
+			int i,j,k;
+			for(i=0;i<6535;i++)
+				for(j=0;j<200;j++)
+					k=j;
+			rx=ADXL362_ReadXNew();
+			ry=ADXL362_ReadYNew();
+			//xil_printf("Rx: T = %d\tS = %d\tW = %d\tRy: T = %d\tS = %d\tW = %d\n",rx.thousand,rx.sign,rx.whole,ry.thousand,ry.sign,ry.whole);
+			//xil_printf("Value ry.thousands=%d\n",ry.thousand);
+			//xil_printf("Value rx.sign=%c\n",rx.sign);
+			//xil_printf("Value ry.sign=%c\n",ry.sign);
+			//xil_printf("Value rx.whole=%d\n",rx.whole);
+			//xil_printf("Value ry.whole=%d\n",ry.whole);
+			if(rx.sign==0){
+				if(rx.thousand>40)
+				{
+				xaxis_new=(xaxis_new+(int)((rx.thousand-40)/8))%225;
+				//xil_printf("DOWN");
+				}
+				//xil_printf("Value rx.sign>0=%d\n",rx.sign);
+			}
+				//lcdPrint("FRONT", 40, 60);
+			else{
+				if(rx.thousand>40)
+				{
+				xaxis_new=(xaxis_new-(int)((rx.thousand-40)/8))%225;
+				//xil_printf("UP");
+				}
+			    //xil_printf("Value rx.sign<0=%d\n",rx.sign);
+			}
+				//lcdPrint("BACK", 40, 60);
+
+			if(ry.sign==0){
+				if(ry.thousand>40)
+				{
+					//xil_printf("LEFT");
+				yaxis_new=(yaxis_new+(int)((ry.thousand-40)/6))%305;
+				}
+			    //xil_printf("Value ry.sign>0=%d\n",ry.sign);
+			}
+				//lcdPrint("RIGHT", 40, 80);
+			else{
+				if(ry.thousand>40)
+				{
+					//xil_printf("RIGHT");
+				yaxis_new=(yaxis_new-(int)((ry.thousand-40)/6))%305;
+				}
+			    //xil_printf("Value ry.sign<0=%d\n",ry.sign);
+			}
+				//lcdPrint("LEFT", 40, 80);
+
+
+			xil_printf("%d,%d\n",xaxis_new,yaxis_new);
+		   }
+
+
+
+
+	xil_printf("End\n");
+	return 0;
+}
+
+

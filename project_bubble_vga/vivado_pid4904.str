@@ -1,0 +1,942 @@
+/*
+
+Vivado v2017.2 (64-bit)
+SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+
+Process ID: 4904
+License: Customer
+
+Current time: 	1/11/18 12:43:31 PM PST
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 32 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2017.2/tps/win64/jre
+JVM executable location: 	C:/Xilinx/Vivado/2017.2/tps/win64/jre/bin/java.exe
+Java library paths: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o;C:/WINDOWS/Sun/Java/bin;C:/WINDOWS/system32;C:/WINDOWS;C:/Xilinx/Vivado/2017.2/bin;C:/Xilinx/Vivado/2017.2/lib/win64.o;C:/Xilinx/Vivado/2017.2/tps/win64/jre/bin/server;C:/Xilinx/Vivado/2017.2/tps/win64/jre/bin;C:/Xilinx/SDK/2017.2/bin;C:/Xilinx/Vivado/2017.2/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2017.2/ids_lite/ISE/lib/nt64;C:/Xilinx/Vivado_HLS/2017.2/bin;C:/Program Files/IBM/ILOG/CPLEX_Studio1263/opl/bin/x64_win64;C:/Program Files/IBM/ILOG/CPLEX_Studio1263/opl/oplide/;C:/Program Files/IBM/ILOG/CPLEX_Studio1263/cplex/bin/x64_win64;C:/Program Files/IBM/ILOG/CPLEX_Studio1263/cpoptimizer/bin/x64_win64;C:/Program Files/Microsoft MPI/Bin/;C:/ProgramData/Oracle/Java/javapath;C:/WINDOWS/system32;C:/WINDOWS;C:/WINDOWS/System32/Wbem;C:/WINDOWS/System32/WindowsPowerShell/v1.0/;C:/Program Files/PuTTY/;C:/Users/Karma/AppData/Roaming/nvm;C:/Program Files/nodejs;C:/Program Files (x86)/WinMerge;C:/Program Files/dotnet/;C:/Program Files/Git/cmd;C:/Program Files/MATLAB/R2017b/bin;C:/Users/Karma/AppData/Local/Microsoft/WindowsApps;C:/Program Files/Microsoft VS Code/bin;C:/Program Files/Java/jdk1.8.0_144/bin;C:/Users/Karma/Documents/dev/apache-maven-3.5.0/bin;C:/Users/Karma/Documents/dev/exiftool-10.62;C:/xampp/php;C:/MinGW/bin;C:/Anaconda3;C:/Program Files/CMake/bin;C:/Program Files/Docker Toolbox;C:/MinGW/msys/1.0/bin;;C:/Xilinx/Vivado/2017.2/tps/mingw/6.2.0/win64.o/nt/bin;C:/Xilinx/Vivado/2017.2/tps/mingw/6.2.0/win64.o/nt/libexec/gcc/x86_64-w64-mingw32/6.2.0;.
+
+User name: 	Karma
+User home directory: C:/Users/Karma
+User working directory: C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2017.2
+RDI_DATADIR: C:/Xilinx/Vivado/2017.2/data
+RDI_BINDIR: C:/Xilinx/Vivado/2017.2/bin
+
+User preferences location: C:/Users/Karma/AppData/Roaming/Xilinx/Vivado
+Vivado preferences directory: C:/Users/Karma/AppData/Roaming/Xilinx/Vivado/2017.2/vivado.xml
+Vivado layouts directory: C:/Users/Karma/AppData/Roaming/Xilinx/Vivado/2017.2/layouts
+PlanAhead jar location: 	C:/Xilinx/Vivado/2017.2/lib/classes/planAhead.jar
+Vivado Look & Feel: 	[Synthetica - the extended Synth Look and Feel. - ui.g.i.H]
+Engine tmp dir: 	C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/.Xil/Vivado-4904-DESKTOP-31MJG7C
+
+GUI allocated memory:	180 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 503 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 38 MB (+37154kb) [00:00:05]
+// [Engine Memory]: 434 MB (+304069kb) [00:00:05]
+// Opening Vivado Project: C:\Users\Karma\Documents\workspace\final_project\project_bubble_vga\project_bubble_vga.xpr. Version: Vivado v2017.2 
+// bs:g (cg:JFrame):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 508 MB. GUI used memory: 32 MB. Current time: 1/11/18 12:43:33 PM PST
+// [Engine Memory]: 510 MB (+56687kb) [00:00:10]
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 574 MB (+39933kb) [00:00:15]
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 52 MB (+12955kb) [00:00:22]
+// [Engine Memory]: 694 MB (+95846kb) [00:00:22]
+// [GUI Memory]: 67 MB (+12543kb) [00:00:25]
+// [GUI Memory]: 70 MB (+349kb) [00:00:26]
+// Tcl Message: open_project C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 716 MB. GUI used memory: 52 MB. Current time: 1/11/18 12:43:51 PM PST
+// Tcl Message: open_project: Time (s): cpu = 00:00:30 ; elapsed = 00:00:21 . Memory (MB): peak = 915.750 ; gain = 239.125 
+// Project name: project_bubble_vga; location: C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga; part: xc7a100tcsg324-1
+dismissDialog("Open Project"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// [GUI Memory]: 86 MB (+12452kb) [00:00:31]
+// [Engine Memory]: 741 MB (+12822kb) [00:00:31]
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, IP Integrator, Open Block Design]", 7, false); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_BLOCK_DESIGN
+// bs:g (cg:JFrame):  Open Block Design : addNotify
+// TclEventType: LOAD_FEATURE
+// Tcl Message: open_bd_design {C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.srcs/sources_1/bd/system/system.bd} 
+// TclEventType: RSB_PROPERTY_CHANGE
+// Tcl Message: Adding cell -- xilinx.com:ip:microblaze:10.0 - microblaze_0 
+// TclEventType: LOAD_FEATURE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Tcl Message: Adding cell -- xilinx.com:module_ref:stream_grabber:1.0 - stream_grabber_0 
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: RSB_OPEN_DIAGRAM
+// [GUI Memory]: 94 MB (+4283kb) [00:00:42]
+// Tcl Message: Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar Adding cell -- xilinx.com:ip:lmb_v10:3.0 - dlmb_v10 Adding cell -- xilinx.com:ip:lmb_v10:3.0 - ilmb_v10 Adding cell -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - dlmb_bram_if_cntlr Adding cell -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - ilmb_bram_if_cntlr Adding cell -- xilinx.com:ip:blk_mem_gen:8.3 - lmb_bram Successfully read diagram <system> from BD file <C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.srcs/sources_1/bd/system/system.bd> 
+// TclEventType: RSB_OPEN_DIAGRAM
+// [GUI Memory]: 101 MB (+1809kb) [00:00:45]
+// [Engine Memory]: 813 MB (+37127kb) [00:00:45]
+// TclEventType: RSB_CONNECTION_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 840 MB. GUI used memory: 58 MB. Current time: 1/11/18 12:44:10 PM PST
+// TclEventType: RSB_CONNECTION_CHANGE
+// TclEventType: RSB_LOCK_CHANGE
+// Tcl Message: open_bd_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 996.199 ; gain = 76.750 
+// 'bv' command handler elapsed time: 14 seconds
+// Elapsed time: 14 seconds
+dismissDialog("Open Block Design"); // bs:g (cg:JFrame)
+// [Engine Memory]: 857 MB (+3246kb) [00:00:47]
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 178 seconds
+selectView(PAResourceOtoP.PAViews_SYSTEM, "System", 885, 472, 1189, 627, false, false, false, true, false); // fe:aJ (k:TdiGroup, cg:JFrame) - Popup Trigger
+selectMenu(PAResourceQtoS.SystemBuilderMenu_IP_DOCUMENTATION, "IP Documentation"); // Z:JMenu (ai:JPopupMenu, cg:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 884 MB. GUI used memory: 59 MB. Current time: 1/11/18 12:47:14 PM PST
+selectMenuItem(PAResourceCommand.PACommandNames_EDIT_IN_IP_PACKAGER, "Edit in IP Packager"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_EDIT_IN_IP_PACKAGER
+// k:p (cg:JFrame): Edit in IP Packager: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, k:p)
+// bs:g (cg:JFrame):  Edit in IP Packager : addNotify
+selectButton("PAResourceEtoH.EditIPProjectNameChooser_PROJECT_FOLDER_ALREADY_EXISTS_OK_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, H:JDialog)
+// Tcl Message: ipx::edit_ip_in_project -upgrade true -name vga_axi_b_v1_0_project -directory C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.tmp/vga_axi_b_v1_0_project c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0/component.xml 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'c:/users/karma/documents/workspace/final_project/project_bubble_vga/project_bubble_vga.tmp/vga_axi_b_v1_0_project' 
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV_BITS' by 5 for port or parameter 'div_ctr' INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV' by 32 for port or parameter 'div_ctr_next' INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV_BITS' by 5 for port or parameter 'div_ctr_next' INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV' by 32 for port or parameter 'mic_clk_next' 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [Engine Memory]: 909 MB (+9548kb) [00:04:06]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 1052.070 ; gain = 23.832 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-795] Syncing license key meta-data INFO: [IP_Flow 19-793] Syncing display name meta-data INFO: [IP_Flow 19-798] Syncing taxonomy meta-data 
+// TclEventType: PACKAGER_CURRENT_CORE
+// Run Command: PAResourceCommand.PACommandNames_IP_PACKAGER
+// [GUI Memory]: 121 MB (+16355kb) [00:04:08]
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: ipx::edit_ip_in_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 1059.445 ; gain = 31.207 
+// [GUI Memory]: 128 MB (+205kb) [00:04:09]
+// 'i' command handler elapsed time: 18 seconds
+// HMemoryUtils.trashcanNow. Engine heap size: 923 MB. GUI used memory: 81 MB. Current time: 1/11/18 12:47:34 PM PST
+dismissDialog("Edit in IP Packager"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2, true); // B:i (D:JPanel, cg:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2, true, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click - Node
+// Elapsed time: 644 seconds
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 310, 419); // bI:J (JPanel:JComponent, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_RECENT_FILE, "Open Recent File"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_EXPORT, "Export"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_LAUNCH_HARDWARE, "Launch SDK"); // ac:JMenuItem (JPopupMenu:JComponent, cg:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_LAUNCH_HARDWARE
+// aa:p (cg:JFrame): Launch SDK: addNotify
+// [GUI Memory]: 136 MB (+2146kb) [00:17:05]
+// Elapsed time: 166 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, aa:p)
+selectButton("PAResourceItoN.NewLaunchHardwareDialog_EXPORTED_FILE_FOR_THIS_MODULE_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, H:JDialog)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, aa:p)
+// 'o' command handler elapsed time: 174 seconds
+dismissDialog("Launch SDK"); // aa:p (cg:JFrame)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v), vga : vga_b (vga_b.v)]", 3, false); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v), vga : vga_b (vga_b.v)]", 3, false, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click
+selectCodeEditor("vga_b.v", 256, 357); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 467 seconds
+closeMainWindow("vga_axi_b_v1_0_project - [c:/users/karma/documents/workspace/final_project/project_bubble_vga/project_bubble_vga.tmp/vga_axi_b_v1_0_project/vga_axi_b_v1_0_project.xpr] - Vivado 2017.2"); // cg:JFrame
+// Run Command: PAResourceCommand.PACommandNames_CLOSE_PROJECT
+// x:aN (cg:JFrame): Close Project: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Close Project : addNotify
+dismissDialog("Close Project"); // x:aN (cg:JFrame)
+// TclEventType: PROJECT_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 925 MB. GUI used memory: 81 MB. Current time: 1/11/18 1:09:22 PM PST
+// Tcl Message: close_project 
+dismissDialog("Close Project"); // bs:g (cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_RECENT_FILE, "Open Recent File"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_EXPORT, "Export"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_LAUNCH_HARDWARE, "Launch SDK"); // ac:JMenuItem (JPopupMenu:JComponent, cg:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_LAUNCH_HARDWARE
+// aa:p (cg:JFrame): Launch SDK: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, aa:p)
+dismissDialog("Launch SDK"); // aa:p (cg:JFrame)
+// Tcl Message: launch_sdk -workspace C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.sdk -hwspec C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.sdk/system_wrapper.hdf 
+// Tcl Message: INFO: [Vivado 12-393] Launching SDK... INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.sdk -hwspec C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.sdk/system_wrapper.hdf INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages. 
+// Elapsed time: 354 seconds
+selectView(PAResourceOtoP.PAViews_SYSTEM, "System", 895, 456, 1189, 627, false, false, false, true, false); // fe:aJ (k:TdiGroup, cg:JFrame) - Popup Trigger
+selectMenu(PAResourceQtoS.SystemBuilderMenu_IP_DOCUMENTATION, "IP Documentation"); // Z:JMenu (ai:JPopupMenu, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_EDIT_IN_IP_PACKAGER, "Edit in IP Packager"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_EDIT_IN_IP_PACKAGER
+// k:p (cg:JFrame): Edit in IP Packager: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, k:p)
+// bs:g (cg:JFrame):  Edit in IP Packager : addNotify
+selectButton("PAResourceEtoH.EditIPProjectNameChooser_PROJECT_FOLDER_ALREADY_EXISTS_OK_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, H:JDialog)
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: ipx::edit_ip_in_project -upgrade true -name vga_axi_b_v1_0_project -directory C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.tmp/vga_axi_b_v1_0_project c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0/component.xml 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'c:/users/karma/documents/workspace/final_project/project_bubble_vga/project_bubble_vga.tmp/vga_axi_b_v1_0_project' 
+// TclEventType: PROJECT_NEW
+// Tcl Message: INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV_BITS' by 5 for port or parameter 'div_ctr' INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV' by 32 for port or parameter 'div_ctr_next' INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV_BITS' by 5 for port or parameter 'div_ctr_next' INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV' by 32 for port or parameter 'mic_clk_next' 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-795] Syncing license key meta-data INFO: [IP_Flow 19-793] Syncing display name meta-data INFO: [IP_Flow 19-798] Syncing taxonomy meta-data 
+// TclEventType: PACKAGER_CURRENT_CORE
+// Run Command: PAResourceCommand.PACommandNames_IP_PACKAGER
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// 'i' command handler elapsed time: 8 seconds
+dismissDialog("Edit in IP Packager"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1); // B:i (D:JPanel, cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v), vga : vga_b (vga_b.v)]", 3, false); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v), vga : vga_b (vga_b.v)]", 3, false, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click
+selectCodeEditor("vga_b.v", 202, 275); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 71, 328); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 63, 265); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 63, 265, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_b.v", 203, 233); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 142, 338); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 26 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Package IP - vga_axi_b", 1); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "File Groups", 2); // an:k (JViewport:JComponent, cg:JFrame)
+selectButton(PAResourceItoN.MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT, "Merge changes from File Groups Wizard"); // h:k (JPanel:JComponent, cg:JFrame)
+// TclEventType: PACKAGER_COMPONENT_RESET
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: ipx::merge_project_changes files [ipx::current_core] 
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Review and Package", 7); // an:k (JViewport:JComponent, cg:JFrame)
+selectButton(PAResourceQtoS.ReviewContentPanel_RE_PACKAGE_IP, "Re-Package IP"); // a:JButton (JPanel:JComponent, cg:JFrame)
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: set_property core_revision 3 [ipx::current_core] 
+// Tcl Message: ipx::create_xgui_files [ipx::current_core] 
+// Tcl Message: ipx::update_checksums [ipx::current_core] 
+// Tcl Message: ipx::save_core [ipx::current_core] 
+// TclEventType: FILE_SET_CHANGE
+// bs:g (cg:JFrame):  Package IP : addNotify
+selectButton("PAResourceQtoS.ReviewContentPanel_FINISHED_PACKAGING_SUCCESSFULLY_DO_Yes", "Yes"); // JButton:AbstractButton (JPanel:JComponent, G:JDialog)
+// TclEventType: PROJECT_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 932 MB. GUI used memory: 89 MB. Current time: 1/11/18 1:16:45 PM PST
+// Tcl Message: close_project -delete 
+dismissDialog("Package IP"); // bs:g (cg:JFrame)
+// TclEventType: CREATE_IP_CATALOG
+// Tcl Message: update_ip_catalog -rebuild -repo_path c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: BDCELL_LOCK_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: CREATE_IP_CATALOG
+// Tcl Message: INFO: [IP_Flow 19-725] Reloaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0' 
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// f:p (cg:JFrame): Launch Runs: addNotify
+selectButton("PAResourceQtoS.RunBitgen_BITSTREAM_GENERATION_HAS_ALREADY_COMPLETED_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, G:JDialog)
+// Elapsed time: 13 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, f:p)
+// 'cp' command handler elapsed time: 16 seconds
+dismissDialog("Launch Runs"); // f:p (cg:JFrame)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// bs:g (cg:JFrame):  Generate Bitstream : addNotify
+// TclEventType: RUN_LAUNCH
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 4 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu Jan 11 13:17:08 2018] Launched impl_1... Run output will be captured here: C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bs:g (cg:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 948 MB. GUI used memory: 90 MB. Current time: 1/11/18 1:17:09 PM PST
+// Elapsed time: 25 seconds
+selectTab((HResource) null, (HResource) null, "Design Runs", 4); // aF:FrameContainer (ContainerContainer:JideSplitPane, cg:JFrame)
+// TclEventType: RUN_COMPLETED
+// ah:x (cg:JFrame): Bitstream Generation Completed: addNotify
+// Elapsed time: 85 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, ah:x)
+// Run Command: PAResourceCommand.PACommandNames_GOTO_IMPLEMENTED_DESIGN
+// bs:g (cg:JFrame):  Open Implemented Design : addNotify
+// Tcl Message: open_run impl_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,085 MB. GUI used memory: 86 MB. Current time: 1/11/18 1:19:04 PM PST
+// [Engine Memory]: 1,085 MB (+136682kb) [00:35:40]
+// [Engine Memory]: 1,273 MB (+140455kb) [00:35:45]
+// [Engine Memory]: 1,437 MB (+105384kb) [00:35:50]
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: POWER_CNS_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// HMemoryUtils.trashcanNow. Engine heap size: 1,483 MB. GUI used memory: 86 MB. Current time: 1/11/18 1:19:19 PM PST
+// [Engine Memory]: 1,527 MB (+18169kb) [00:36:00]
+// [Engine Memory]: 1,909 MB (+321236kb) [00:36:05]
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: LOC_CONSTRAINT_REMOVE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: LOC_CONSTRAINT_REMOVE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: LOC_CONSTRAINT_REMOVE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SDC_CONSTRAINT_ADD
+// HMemoryUtils.trashcanNow. Engine heap size: 2,000 MB. GUI used memory: 86 MB. Current time: 1/11/18 1:19:34 PM PST
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// [Engine Memory]: 2,010 MB (+4960kb) [00:36:15]
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 2,028 MB. GUI used memory: 104 MB. Current time: 1/11/18 1:19:46 PM PST
+// TclEventType: DESIGN_NEW
+// Device: addNotify
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 1476 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2017.2 INFO: [Device 21-403] Loading part xc7a100tcsg324-1 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/.Xil/Vivado-4904-DESKTOP-31MJG7C/dcp1/system_wrapper_board.xdc] Finished Parsing XDC File [C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/.Xil/Vivado-4904-DESKTOP-31MJG7C/dcp1/system_wrapper_board.xdc] Parsing XDC File [C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/.Xil/Vivado-4904-DESKTOP-31MJG7C/dcp1/system_wrapper_early.xdc] 
+// Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. [C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.srcs/sources_1/bd/system/ip/system_mdm_1_0/system_mdm_1_0.xdc:50] 
+// Tcl Message: get_clocks: Time (s): cpu = 00:00:17 ; elapsed = 00:00:15 . Memory (MB): peak = 2198.828 ; gain = 592.523 
+// Tcl Message: INFO: [Timing 38-2] Deriving generated clocks [C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.srcs/sources_1/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0.xdc:57] 
+// Tcl Message: Read XDEF File: Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2273.801 ; gain = 25.203 
+// Tcl Message: Restored from archive | CPU: 5.000000 secs | Memory: 0.000000 MB | 
+// Tcl Message: Finished XDEF File Restore: Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 2273.801 ; gain = 25.203 
+// Tcl Message: Generating merged BMM file for the design top 'system_wrapper'... 
+// ExpRunCommands.openImplResults elapsed time: 49.5s
+// TclEventType: DRC_ADDED
+// Device view-level: 0.0
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// Tcl Message: open_run: Time (s): cpu = 00:01:00 ; elapsed = 00:00:49 . Memory (MB): peak = 2334.449 ; gain = 1234.230 
+// TclEventType: DRC_ADDED
+// TclEventType: METHODOLOGY_ADDED
+// [Engine Memory]: 2,116 MB (+6329kb) [00:36:26]
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// RouteApi::loadEngineXgd elapsed time: 5.7s
+// [Engine Memory]: 2,240 MB (+19077kb) [00:36:28]
+// Device view-level: 0.0
+// TclEventType: POWER_UPDATED
+// [GUI Memory]: 144 MB (+1294kb) [00:36:32]
+// [GUI Memory]: 165 MB (+14234kb) [00:36:35]
+// [GUI Memory]: 178 MB (+4986kb) [00:36:35]
+// [GUI Memory]: 187 MB (+580kb) [00:36:36]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,293 MB. GUI used memory: 155 MB. Current time: 1/11/18 1:20:03 PM PST
+// TclEventType: TIMING_SUMMARY_UPDATED
+// [GUI Memory]: 199 MB (+2304kb) [00:36:43]
+// [GUI Memory]: 221 MB (+12689kb) [00:36:44]
+// 'dH' command handler elapsed time: 68 seconds
+// Elapsed time: 68 seconds
+dismissDialog("Open Implemented Design"); // bs:g (cg:JFrame)
+// Elapsed time: 15 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_RECENT_FILE, "Open Recent File"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_IMPORT, "Import"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_EXPORT, "Export"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_EXPORT, "Export"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_EXPORT_HARDWARE, "Export Hardware..."); // ac:JMenuItem (JPopupMenu:JComponent, cg:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_EXPORT_HARDWARE
+// X:p (cg:JFrame): Export Hardware: addNotify
+selectCheckBox(PAResourceItoN.NewExportHardwareDialog_INCLUDE_BITSTREAM, "Include bitstream", true); // g:JCheckBox (JPanel:JComponent, X:p): TRUE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, X:p)
+// 'm' command handler elapsed time: 3 seconds
+selectButton("PAResourceItoN.NewExportHardwareDialog_EXPORTED_FILE_FOR_THIS_MODULE_WAS_Yes", "Yes"); // JButton:AbstractButton (JPanel:JComponent, H:JDialog)
+dismissDialog("Export Hardware"); // X:p (cg:JFrame)
+// Tcl Message: file copy -force C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.runs/impl_1/system_wrapper.sysdef C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.sdk/system_wrapper.hdf  
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_IMPORT, "Import"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_EXPORT, "Export"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_LAUNCH_HARDWARE, "Launch SDK"); // ac:JMenuItem (JPopupMenu:JComponent, cg:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_LAUNCH_HARDWARE
+// aa:p (cg:JFrame): Launch SDK: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, aa:p)
+dismissDialog("Launch SDK"); // aa:p (cg:JFrame)
+// Tcl Message: launch_sdk -workspace C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.sdk -hwspec C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.sdk/system_wrapper.hdf 
+// Tcl Message: INFO: [Vivado 12-393] Launching SDK... INFO: [Vivado 12-417] Running xsdk -workspace C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.sdk -hwspec C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.sdk/system_wrapper.hdf INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages. 
+// [GUI Memory]: 235 MB (+2564kb) [00:38:55]
+// Elapsed time: 469 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, "Open Recent Project"); // Z:JMenu (JPopupMenu:JComponent, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_OPEN_FILE, "Open File..."); // ac:JMenuItem (JPopupMenu:JComponent, cg:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_FILE
+// Elapsed time: 13 seconds
+selectComboBox(RDIResource.HJFileChooserRecentListPreview_RECENT_DIRECTORIES, "C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.srcs/constrs_1/imports/labfiles_2015", 3); // ak:e (JPanel:JComponent, JDialog:Dialog)
+// Elapsed time: 11 seconds
+selectComboBox(RDIResource.HJFileChooserRecentListPreview_RECENT_DIRECTORIES, "C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0/hdl", 4); // ak:e (JPanel:JComponent, JDialog:Dialog)
+// Elapsed time: 18 seconds
+setFileChooser("C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.srcs/constrs_1/imports/labfiles_2015/Nexys4_master_DDR.xdc");
+// 'e' command handler elapsed time: 43 seconds
+selectCodeEditor("Nexys4_master_DDR.xdc", 499, 211); // bI:J (JPanel:JComponent, cg:JFrame)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "vga", true); // l:X (ax:e, cg:JFrame)
+// Elapsed time: 410 seconds
+selectCodeEditor("Nexys4_master_DDR.xdc", 259, 405); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("Nexys4_master_DDR.xdc", 259, 405, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("Nexys4_master_DDR.xdc", 259, 405); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("Nexys4_master_DDR.xdc", 261, 419); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("Nexys4_master_DDR.xdc", 261, 419, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("Nexys4_master_DDR.xdc", 261, 419); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 38 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, IP Integrator, Open Block Design]", 7, false); // u:M (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis]", 3); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_BLOCK_DESIGN
+// bs:g (cg:JFrame):  Open Block Design : addNotify
+// TclEventType: RSB_OPEN_DIAGRAM
+// Tcl Message: open_bd_design {C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.srcs/sources_1/bd/system/system.bd} 
+dismissDialog("Open Block Design"); // bs:g (cg:JFrame)
+// [GUI Memory]: 246 MB (+162kb) [00:53:38]
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// HOptionPane Warning: ''vga_axi_b_0' is locked and cannot be customized. (Vivado)'
+// Elapsed time: 12 seconds
+selectButton("PAResourceAtoD.CustomizeRSBBlock_IT_LOCKED_AND_CANNOT_BE_CUSTOMIZED_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, G:JDialog)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "IP Sources", 1); // i:JideTabbedPane (N:aJ, cg:JFrame)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Hierarchy", 0); // i:JideTabbedPane (N:aJ, cg:JFrame)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Configuration Files]", 2); // B:i (D:JPanel, cg:JFrame)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Configuration Files]", 2); // B:i (D:JPanel, cg:JFrame)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_wrapper (system_wrapper.v)]", 1); // B:i (D:JPanel, cg:JFrame)
+// Elapsed time: 32 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_wrapper (system_wrapper.v), system_i : system (system.bd), system (system.v)]", 3); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, open_project C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.xpr. , [filemgmt 56-3] IP Repository Path: Could not find the directory 'C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/VGA_B_1.0'.. ]", 2, false); // ah:i (JViewport:JComponent, cg:JFrame)
+selectCheckBox(PAResourceItoN.MsgView_INFORMATION_MESSAGES, (String) null, false); // g:JCheckBox (JPanel:JComponent, cg:JFrame): FALSE
+// Elapsed time: 31 seconds
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, Out-of-Context Module Runs, system, system_vga_axi_b_0_1_synth_1, [Synth 8-3848] Net pad1_y in module/entity vga_b does not have driver. [c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.srcs/sources_1/bd/system/ipshared/f559/hdl/vga_b.v:60]. ]", 22); // ah:i (JViewport:JComponent, cg:JFrame)
+// Elapsed time: 11 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_wrapper (system_wrapper.v), system_i : system (system.bd), system (system.v), vga_axi_b_0 : system_vga_axi_b_0_1 (system_vga_axi_b_0_1.xci)]", 24); // B:i (D:JPanel, cg:JFrame)
+// x:aN (cg:JFrame): Show IP Hierarchy: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, x:aN)
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Show IP Hierarchy"); // x:aN (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_wrapper (system_wrapper.v), system_i : system (system.bd), system (system.v), vga_axi_b_0 : system_vga_axi_b_0_1 (system_vga_axi_b_0_1.xci)]", 24, false); // B:i (D:JPanel, cg:JFrame)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Configuration Files]", 25); // B:i (D:JPanel, cg:JFrame)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Configuration Files]", 25); // B:i (D:JPanel, cg:JFrame)
+// TclEventType: DG_GRAPH_GENERATED
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, system_wrapper (system_wrapper.v), system_i : system (system.bd)]", 2); // B:i (D:JPanel, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_PIN
+// p:g (cg:JFrame): Customize Pin: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, p:g)
+dismissDialog("Customize Pin"); // p:g (cg:JFrame)
+selectView(PAResourceOtoP.PAViews_SYSTEM, "System", 860, 532, 1189, 627, false, false, false, true, false); // fe:aJ (k:TdiGroup, cg:JFrame) - Popup Trigger
+selectView(PAResourceOtoP.PAViews_SYSTEM, "System", 803, 453, 1189, 627, false, false, false, true, false); // fe:aJ (k:TdiGroup, cg:JFrame) - Popup Trigger
+selectMenu(PAResourceQtoS.SystemBuilderMenu_IP_DOCUMENTATION, "IP Documentation"); // Z:JMenu (ai:JPopupMenu, cg:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_EDIT_IN_IP_PACKAGER, "Edit in IP Packager"); // ac:JMenuItem (ai:JPopupMenu, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_EDIT_IN_IP_PACKAGER
+// k:p (cg:JFrame): Edit in IP Packager: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, k:p)
+// bs:g (cg:JFrame):  Edit in IP Packager : addNotify
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// Tcl Message: ipx::edit_ip_in_project -upgrade true -name vga_axi_b_v1_0_project -directory C:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/project_bubble_vga.tmp/vga_axi_b_v1_0_project c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0/component.xml 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'c:/users/karma/documents/workspace/final_project/project_bubble_vga/project_bubble_vga.tmp/vga_axi_b_v1_0_project' 
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV_BITS' by 5 for port or parameter 'div_ctr' INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV' by 32 for port or parameter 'div_ctr_next' INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV_BITS' by 5 for port or parameter 'div_ctr_next' INFO: [IP_Flow 19-1976] HDL Parser: Replacing 'MIC_CLK_DIV' by 32 for port or parameter 'mic_clk_next' 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: RSB_BITABEN_IPREPODATA_REFRESH
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2630.352 ; gain = 0.000 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Karma/Documents/workspace/final_project/project_bubble_vga/ip_repo/vga_axi_b_1.0'. 
+// Tcl Message: INFO: [IP_Flow 19-795] Syncing license key meta-data INFO: [IP_Flow 19-793] Syncing display name meta-data INFO: [IP_Flow 19-798] Syncing taxonomy meta-data 
+// TclEventType: PACKAGER_CURRENT_CORE
+// Run Command: PAResourceCommand.PACommandNames_IP_PACKAGER
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: ipx::edit_ip_in_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2630.352 ; gain = 0.000 
+// 'i' command handler elapsed time: 9 seconds
+// TclEventType: DG_ANALYSIS_MSG_RESET
+dismissDialog("Edit in IP Packager"); // bs:g (cg:JFrame)
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1, true); // B:i (D:JPanel, cg:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1, true, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1, true); // B:i (D:JPanel, cg:JFrame) - Node
+// Elapsed time: 10 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1); // B:i (D:JPanel, cg:JFrame)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2); // B:i (D:JPanel, cg:JFrame)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v), vga : vga_b (vga_b.v)]", 3, false); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v), vga : vga_b (vga_b.v)]", 3, false, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2, true); // B:i (D:JPanel, cg:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2, true, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click - Node
+// [GUI Memory]: 260 MB (+1530kb) [00:56:20]
+// Elapsed time: 25 seconds
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 149, 419); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_axi_b_v1_0_S00_VGA_AXI.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_axi_b_v1_0_S00_VGA_AXI.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_axi_b_v1_0_S00_VGA_AXI.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_axi_b_v1_0_S00_VGA_AXI.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_axi_b_v1_0_S00_VGA_AXI.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1, true); // B:i (D:JPanel, cg:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1, true, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click - Node
+selectCodeEditor("vga_axi_b_v1_0.v", 308, 495); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_axi_b_v1_0.v", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_axi_b_v1_0.v", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey(null, null, 'z');
+// Elapsed time: 17 seconds
+selectCodeEditor("vga_axi_b_v1_0.v", 237, 401); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 33 seconds
+selectCodeEditor("vga_axi_b_v1_0.v", 268, 396); // bI:J (JPanel:JComponent, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1, true); // B:i (D:JPanel, cg:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1, true, false, false, false, true, false); // B:i (D:JPanel, cg:JFrame) - Popup Trigger - Node
+selectCodeEditor("vga_axi_b_v1_0.v", 352, 302); // bI:J (JPanel:JComponent, cg:JFrame)
+// [GUI Memory]: 274 MB (+611kb) [00:58:03]
+selectCodeEditor("vga_axi_b_v1_0.v", 265, 418); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_axi_b_v1_0.v", 104, 31); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_axi_b_v1_0.v", 104, 31, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_axi_b_v1_0.v", 224, 404); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_axi_b_v1_0.v", 202, 90); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_axi_b_v1_0.v", 202, 90, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_axi_b_v1_0.v", 218, 414); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 37 seconds
+selectCodeEditor("vga_axi_b_v1_0.v", 401, 316); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 16 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1); // B:i (D:JPanel, cg:JFrame)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1); // B:i (D:JPanel, cg:JFrame)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v)]", 1); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2, true); // B:i (D:JPanel, cg:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2, true, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click - Node
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 269, 315); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 15 seconds
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 57, 319); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 388, 314); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 38 seconds
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 79, 291); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 79, 291, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 140, 423); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v), vga : vga_b (vga_b.v)]", 3, false); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v), vga : vga_b (vga_b.v)]", 3, false, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click
+selectCodeEditor("vga_b.v", 25, 247); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 431, 428); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 20 seconds
+selectCodeEditor("vga_b.v", 132, 333); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 132, 333, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+typeControlKey((HResource) null, "vga_b.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 160, 280); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 160, 280, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_b.v", 208, 211); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 94, 199); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 51 seconds
+selectCodeEditor("vga_b.v", 122, 221); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_b.v", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_b.v", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 13 seconds
+selectCodeEditor("vga_b.v", 42, 264); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 42, 264, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+typeControlKey((HResource) null, "vga_b.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 27, 77); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 27, 76, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+typeControlKey((HResource) null, "vga_b.v", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("vga_b.v", 157, 393); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("vga_b.v", 48, 387); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 48, 387, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("vga_b.v", 300, 359); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 6, 178); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 53 seconds
+selectCodeEditor("vga_b.v", 93, 200); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 93, 200, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+typeControlKey((HResource) null, "vga_b.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectCodeEditor("vga_b.v", 100, 215); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 100, 215, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+typeControlKey((HResource) null, "vga_b.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 95, 230); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_b.v", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 20 seconds
+selectCodeEditor("vga_b.v", 177, 145); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 261, 224); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 17 seconds
+selectCodeEditor("vga_b.v", 64, 158); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 336, 164); // bI:J (JPanel:JComponent, cg:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 2,343 MB. GUI used memory: 201 MB. Current time: 1/11/18 1:50:05 PM PST
+// Elapsed time: 237 seconds
+selectCodeEditor("vga_b.v", 300, 215); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 79 seconds
+selectCodeEditor("vga_b.v", 483, 305); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2, true); // B:i (D:JPanel, cg:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2, true, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click - Node
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 177, 419); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 11 seconds
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 71, 317); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 71, 317, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 130, 314); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 130, 314, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 162, 334); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_axi_b_v1_0_S00_VGA_AXI.v", 162, 334, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v)]", 2); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v), vga : vga_b (vga_b.v)]", 3, false); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, vga_axi_b_v1_0 (vga_axi_b_v1_0.v), vga_axi_b_v1_0_S00_VGA_AXI_inst : vga_axi_b_v1_0_S00_VGA_AXI (vga_axi_b_v1_0_S00_VGA_AXI.v), vga : vga_b (vga_b.v)]", 3, false, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click
+selectCodeEditor("vga_b.v", 62, 196); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 62, 196, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_b.v", 107, 182); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 107, 182, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_b.v", 115, 144); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 115, 144, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_b.v", 17, 148); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 10 seconds
+selectCodeEditor("vga_b.v", 151, 101); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 151, 101, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 15 seconds
+selectCodeEditor("vga_b.v", 30, 234); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 10 seconds
+selectCodeEditor("vga_b.v", 23, 261); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 69, 246); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 98, 247); // bI:J (JPanel:JComponent, cg:JFrame)
+// Elapsed time: 10 seconds
+selectCodeEditor("vga_b.v", 75, 107); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 75, 107, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+selectCodeEditor("vga_b.v", 88, 345); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 88, 345, false, false, false, false, true); // bI:J (JPanel:JComponent, cg:JFrame) - Double Click
+// Elapsed time: 14 seconds
+selectCodeEditor("vga_b.v", 21, 180); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_b.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_b.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_b.v", 'c'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 186, 215); // bI:J (JPanel:JComponent, cg:JFrame)
+typeControlKey((HResource) null, "vga_b.v", 'v'); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 103, 455); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 43, 315); // bI:J (JPanel:JComponent, cg:JFrame)
+selectCodeEditor("vga_b.v", 79, 501); // bI:J (JPanel:JComponent, cg:JFrame)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Package IP - vga_axi_b", 1); // k:TdiGroup (j:CodeEditorDocumentPane, cg:JFrame)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "File Groups", 2); // an:k (JViewport:JComponent, cg:JFrame)

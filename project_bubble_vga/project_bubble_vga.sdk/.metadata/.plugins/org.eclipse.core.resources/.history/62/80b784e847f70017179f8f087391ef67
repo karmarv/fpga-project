@@ -1,0 +1,33 @@
+/*
+ * vga_viz.h
+ *
+ *  Created on: Jan 11, 2018
+ *      Author: Karma
+ */
+
+#include "vga_axi_b.h"
+
+#include <stdio.h>		// Used for printf()
+#include "xparameters.h"	// Contains hardware addresses and bit masks
+#include "xil_cache.h"		// Cache Drivers
+#include "xintc.h"		// Interrupt Drivers
+#include "xtmrctr.h"		// Timer Drivers
+#include "xtmrctr_l.h" 		// Low-level timer drivers
+#include "xil_printf.h" 	// Used for xil_printf()
+#include "xgpio.h" 		// LED driver, used for General purpose I/i
+#include "xspi.h"
+#include "xspi_l.h"
+#include "lcd.h"
+#include "ADXL362.h"
+
+#ifndef SRC_VGA_VIZ_H_
+#define SRC_VGA_VIZ_H_
+
+
+
+#endif /* SRC_VGA_VIZ_H_ */
+
+
+/****/
+int displayTest();
+u32 readMonitorStatus();
